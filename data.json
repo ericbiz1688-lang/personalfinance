@@ -63,6 +63,22 @@
       "type": "income",
       "category": "Salary",
       "date": "2026-11-12"
+    },
+    {
+      "id": "6cc4135c-87a3-40f1-a803-500e4cc2ee6e",
+      "description": "Test",
+      "amount": 34,
+      "type": "expense",
+      "category": "Food & drinks",
+      "date": "2026-10-12"
+    },
+    {
+      "id": "b5904c3a-cdee-4a28-af89-8fd49dad86f5",
+      "description": "Rerc",
+      "amount": 58,
+      "type": "expense",
+      "category": "Food & drinks",
+      "date": "2026-10-12"
     }
   ]
 }
