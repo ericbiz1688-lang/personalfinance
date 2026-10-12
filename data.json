@@ -1,0 +1,68 @@
+{
+  "transactions": [
+    {
+      "id": "demo-1",
+      "description": "Monthly salary",
+      "amount": 7000,
+      "type": "income",
+      "category": "Salary",
+      "date": "2026-10-01"
+    },
+    {
+      "id": "demo-2",
+      "description": "Apartment rent",
+      "amount": 1250,
+      "type": "expense",
+      "category": "Home & bills",
+      "date": "2026-10-02"
+    },
+    {
+      "id": "demo-3",
+      "description": "Weekly groceries",
+      "amount": 86.4,
+      "type": "expense",
+      "category": "Food & drinks",
+      "date": "2026-10-03"
+    },
+    {
+      "id": "demo-4",
+      "description": "MRT & bus top-up",
+      "amount": 40,
+      "type": "expense",
+      "category": "Transport",
+      "date": "2026-10-04"
+    },
+    {
+      "id": "demo-5",
+      "description": "Coffee with friends",
+      "amount": 18.5,
+      "type": "expense",
+      "category": "Food & drinks",
+      "date": "2026-10-05"
+    },
+    {
+      "id": "demo-6",
+      "description": "Freelance project",
+      "amount": 450,
+      "type": "income",
+      "category": "Other",
+      "date": "2026-10-05"
+    },
+    {
+      "id": "demo-7",
+      "description": "New headphones",
+      "amount": 129,
+      "type": "expense",
+      "category": "Shopping",
+      "date": "2026-10-06"
+    },
+    {
+      "id": "b73be160-b39c-4f99-84ee-22d62601486b",
+      "description": "Salary",
+      "amount": 7000,
+      "type": "income",
+      "category": "Salary",
+      "date": "2026-11-12"
+    }
+  ]
+}
