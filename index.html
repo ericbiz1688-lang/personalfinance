@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Keep your personal finances in focus. Track income, manage expenses, and understand your spending with Pocket."
+    />
+    <title>Pocket — Personal Finance</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%232b5748'/%3E%3Cpath d='M12 12h16v10a8 8 0 01-16 0z' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Pocket home"
+        ><span class="brand-mark">▱</span> pocket<span class="brand-dot"
+          >.</span
+        ></a
+      >
+      <div class="workspace-label">YOUR WORKSPACE</div>
+      <a class="nav-item active" href="#overview"><span>▦</span> Overview</a>
+      <a class="nav-item" href="#transactions"><span>⇄</span> Transactions</a>
+      <div class="sidebar-note">
+        <span class="note-icon">✧</span>
+        <h3>A little clarity.<br />A lot of possibility.</h3>
+        <p>Small steps today. A more confident financial tomorrow.</p>
+      </div>
+      <div class="profile">
+        <span class="avatar">ME</span>
+        <div>
+          <strong>My personal space</strong
+          ><small>Personal finance tracker</small>
+        </div>
+      </div>
+    </aside>
+    <main id="overview">
+      <header class="topbar">
+        <span
+          >Personal finance <span class="slash">/</span>
+          <strong>Overview</strong></span
+        ><span class="local-badge"><i></i> Stored locally</span>
+      </header>
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">MAKE ROOM FOR WHAT MATTERS</p>
+          <h1>Your money, in focus<span>.</span></h1>
+          <p>A clear picture of where you stand and where your money goes.</p>
+        </div>
+        <button class="primary" id="add-button">
+          <span>＋</span> Add transaction
+        </button>
+      </section>
+
+      <div class="period-row">
+        <h2>Financial overview</h2>
+        <label class="period-control"
+          >Period
+          <select id="month">
+            <option value="all">All time</option>
+          </select></label
+        >
+      </div>
+      <!-- REQ - UI/UX. The application must meet at least one pain point of a target audience group.
+           Evidence: target audience is individuals tracking personal spending in SGD.
+           Pain point: scattered entries make it hard to see remaining money and spending patterns.
+           Balance/income/expense summaries and the category chart consolidate this information;
+           month/search/category filters below help locate entries. Five Layers rationale: ASSESSMENT.md. -->
+      <section class="summary-grid" aria-label="Financial summaries">
+        <article class="summary balance">
+          <div class="card-label">Available balance <span>↗</span></div>
+          <strong id="balance">S$0.00</strong>
+          <p>Income minus expenses</p>
+          <div class="balance-art" aria-hidden="true"></div>
+        </article>
+        <article class="summary">
+          <div class="card-label">
+            Total income <span class="metric-icon income-icon">↓</span>
+          </div>
+          <strong id="income">S$0.00</strong>
+          <p><span class="small-dot green"></span> Money coming in</p>
+        </article>
+        <article class="summary">
+          <div class="card-label">
+            Total expenses <span class="metric-icon expense-icon">↑</span>
+          </div>
+          <strong id="expenses">S$0.00</strong>
+          <p><span class="small-dot orange"></span> Money going out</p>
+        </article>
+      </section>
+      <section class="insights-grid">
+        <article class="panel spending-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Where it goes</h2>
+              <p>Your spending, by category</p>
+            </div>
+            <span class="subtle-icon">◉</span>
+          </div>
+          <div class="spending-content">
+            <div class="donut" id="donut">
+              <div>
+                <small>Total spent</small><strong id="donut-total">S$0</strong>
+              </div>
+            </div>
+            <div id="category-list" class="category-list"></div>
+          </div>
+        </article>
+        <article class="insight-card">
+          <div class="insight-top">
+            <span>THE BIGGER PICTURE</span><span>✧</span>
+          </div>
+          <h2>Keep a little<br />for your future.</h2>
+          <p id="saving-message">
+            Add income and expenses to see how much you're keeping.
+          </p>
+          <div class="saving-rate">
+            <strong id="saving-rate">—</strong><span>of income remaining</span>
+          </div>
+          <div class="saving-track"><span id="saving-bar"></span></div>
+          <small>Based on your selected period</small>
+        </article>
+      </section>
+      <section class="panel transactions-panel" id="transactions">
+        <div class="panel-heading">
+          <div>
+            <h2>Transactions <span id="count" class="count">0</span></h2>
+            <p>The little things that add up.</p>
+          </div>
+          <span class="data-label">Sample entries included · SGD</span>
+        </div>
+        <div class="filters">
+          <label class="search"
+            ><span>⌕</span
+            ><input
+              id="search"
+              type="search"
+              placeholder="Search transactions…"
+              aria-label="Search transactions" /></label
+          ><select id="type-filter" aria-label="Filter by transaction type">
+            <option value="all">All types</option>
+            <option value="expense">Expenses</option>
+            <option value="income">Income</option></select
+          ><select id="category-filter" aria-label="Filter by category">
+            <option value="all">All categories</option></select
+          ><button class="text-button" id="reset">Reset filters</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>TRANSACTION</th>
+                <th>CATEGORY</th>
+                <th>DATE</th>
+                <th class="amount-cell">AMOUNT</th>
+                <th class="actions-cell">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="transaction-list"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="empty" hidden>
+          <span>▱</span>
+          <h3>No transactions here yet</h3>
+          <p>Add a transaction or try clearing your filters.</p>
+        </div>
+        <div class="table-footer">
+          <span id="result-count">Loading transactions…</span
+          ><span>Every transaction tells a story.</span>
+        </div>
+      </section>
+      <section class="insights-grid" aria-label="External services">
+        <article class="panel service-panel">
+          <h2>Currency converter</h2>
+          <p>
+            Convert an SGD amount using the latest published reference rate.
+          </p>
+          <form id="exchange-form">
+            <label
+              >Amount (SGD)<input
+                name="amount"
+                type="number"
+                min="0.01"
+                max="100000000"
+                step="0.01"
+                value="100"
+                required /></label
+            ><label
+              >Convert to<select name="currency">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>GBP</option>
+                <option>JPY</option>
+                <option>MYR</option>
+                <option>AUD</option>
+              </select></label
+            ><button class="primary" type="submit">Convert amount</button>
+          </form>
+          <p id="exchange-result" role="status" aria-live="polite">
+            Rates provided by ExchangeRate-API. Your records stay in SGD.
+          </p>
+        </article>
+        <article class="panel service-panel">
+          <h2>Your spending, explained</h2>
+          <p>
+            Generate a summary of the selected overview period. Only income,
+            expense and category totals are sent to Groq, without descriptions
+            or transaction IDs. An API request may incur a charge.
+          </p>
+          <button id="generate-insight" class="primary" type="button">
+            Generate AI summary
+          </button>
+          <p id="ai-result" role="status" aria-live="polite">
+            Select Generate to request a summary.
+          </p>
+        </article>
+      </section>
+      <footer class="page-footer">
+        <span>pocket. <span>A little more peace of mind.</span></span
+        ><span>Your finances. Your pace.</span>
+      </footer>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
